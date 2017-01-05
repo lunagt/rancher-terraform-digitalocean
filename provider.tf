@@ -1,3 +1,7 @@
+variable "do_token" {}
+variable "pvt_key" {}
+variable "ssh_keys" {}
+
 provider "digitalocean" {
-   token = "${var.DO_TOKEN}"
+   token = "${var.do_token}"
 }
