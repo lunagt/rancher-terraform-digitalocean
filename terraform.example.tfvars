@@ -1,3 +1,3 @@
-DO_TOKEN = "generate new api key and put here"
-PUBLIC_SSH_KEY = "/path/to/.ssh/id_rsa.pub"
-PRIVATE_SSH_KEY = "/path/to/.ssh/id_rsa"
+do_token = "generate new api key and put here"
+pvt_key = "example ~/.ssh/id_rsa"
+ssh_keys = "9999999 <- some numeric id from DO"
