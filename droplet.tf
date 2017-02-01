@@ -1,16 +1,19 @@
 
 resource "digitalocean_droplet" "loadbalancer" {
     image = "ubuntu-16-04-x64"
-    name = "luna-lb-1"
+    name = "test"
     region = "sfo1"
     size = "512mb"
     private_networking = "true"
-    ssh_keys = ["${var.ssh_keys}"]
+    ssh_keys = [
+      "${var.ssh_fingerprint}"
+    ]
 
     connection {
       type = "ssh"
-      user = "luna"
+      user = "root"
       key_file = "${var.pvt_key}"
+      timeout = "2m"
     }
 }
 
