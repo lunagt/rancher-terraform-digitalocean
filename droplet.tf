@@ -1,9 +1,9 @@
 
-resource "digitalocean_droplet" "loadbalancer" {
-    image = "ubuntu-16-04-x64"
-    name = "test"
+resource "digitalocean_droplet" "host" {
+    image = "coreos-stable"
+    name = "${var.host_name}"
     region = "sfo1"
-    size = "512mb"
+    size = "1gb"
     private_networking = "true"
     ssh_keys = [
       "${var.ssh_fingerprint}"
@@ -11,12 +11,12 @@ resource "digitalocean_droplet" "loadbalancer" {
 
     connection {
       type = "ssh"
-      user = "root"
+      user = "core"
       key_file = "${var.pvt_key}"
       timeout = "2m"
     }
 }
 
-output "output-deis-lb" {
-  value = "Load balancer: ${digitalocean_droplet.loadbalancer.ipv4_address} - ${digitalocean_droplet.loadbalancer.ipv4_address_private}"
+output "output-host" {
+  value = "Host: ${digitalocean_droplet.host.ipv4_address} - ${digitalocean_droplet.host.ipv4_address_private}"
 }
