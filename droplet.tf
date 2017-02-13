@@ -3,7 +3,7 @@ resource "digitalocean_droplet" "host" {
     image = "coreos-stable"
     name = "${var.host_name}"
     region = "sfo1"
-    size = "512mb"
+    size = "1gb"
     private_networking = "true"
     ssh_keys = [
       "${var.ssh_fingerprint}"
@@ -18,7 +18,8 @@ resource "digitalocean_droplet" "host" {
 
     provisioner "remote-exec" {
       inline = [
-        "docker run -d --restart=unless-stopped -p 80:8080 rancher/server"
+        "sudo iptables -I INPUT 1 -i eth0 -p tcp --dport 8080 -j ACCEPT",
+        "docker run -d --restart=unless-stopped -p 8080:8080 rancher/server:stable"
         ]
       }
 }
