@@ -3,7 +3,7 @@ resource "digitalocean_droplet" "host" {
     image = "coreos-stable"
     name = "${var.host_name}"
     region = "sfo1"
-    size = "1gb"
+    size = "512mb"
     private_networking = "true"
     ssh_keys = [
       "${var.ssh_fingerprint}"
