@@ -12,7 +12,7 @@ resource "digitalocean_droplet" "host" {
     connection {
       type = "ssh"
       user = "core"
-      key_file = "${var.pvt_key}"
+      private_key = "${file(var.pvt_key)}"
       timeout = "2m"
     }
 }
