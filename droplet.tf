@@ -24,6 +24,13 @@ resource "digitalocean_droplet" "host" {
       }
 }
 
+resource "digitalocean_record" "a_digital_ocean_host" {
+  domain = "${var.domain}"
+  type = "A"
+  name = "${var.domain_name}"
+  value = "${digitalocean_droplet.digitalocean_host.ipv4_address}"
+}
+
 output "output-host" {
   value = "Host: ${digitalocean_droplet.host.ipv4_address} - ${digitalocean_droplet.host.ipv4_address_private}"
 }
