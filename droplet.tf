@@ -15,6 +15,12 @@ resource "digitalocean_droplet" "host" {
       private_key = "${file(var.pvt_key)}"
       timeout = "2m"
     }
+
+    provisioner "remote-exec" {
+      inline = [
+        "docker run -d --restart=unless-stopped -p 80:8080 rancher/server"
+        ]
+      }
 }
 
 output "output-host" {
