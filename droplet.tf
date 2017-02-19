@@ -17,12 +17,12 @@ resource "digitalocean_droplet" "host" {
     user_data = "${template_file.userdata_init.rendered}"
 }
 
-#resource "digitalocean_record" "host" {
-#  domain = "${var.domain}"
-#  type = "A"
-#  name = "${var.domain_name}"
-#  value = "${digitalocean_droplet.host.ipv4_address}"
-#}
+resource "digitalocean_record" "host" {
+  domain = "${var.domain}"
+  type = "A"
+  name = "${var.domain_name}"
+  value = "${digitalocean_droplet.host.ipv4_address}"
+}
 
 output "output-host" {
   value = "Host: ${digitalocean_droplet.host.ipv4_address} - ${digitalocean_droplet.host.ipv4_address_private}"
