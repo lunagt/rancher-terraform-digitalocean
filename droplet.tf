@@ -15,13 +15,6 @@ resource "digitalocean_droplet" "host" {
     private_networking = "true"
     ssh_keys = ["${var.ssh_fingerprint}"]
     user_data = "${template_file.userdata_init.rendered}"
-
-    #connection {
-    #  type = "ssh"
-    #  user = "root"
-    #  private_key = "${file(var.pvt_key)}"
-    #  timeout = "2m"
-    #}
 }
 
 #resource "digitalocean_record" "host" {
