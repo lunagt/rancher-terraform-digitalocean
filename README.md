@@ -1,5 +1,3 @@
-# Luna Terraform
-Non generic terraform module as a first step to automate the production environment.
+# Rancher Terraform Digitalocean
+Terraform module for a rancher server on digitalocean.
 
-## Why?
-It is easier to do something specific than something generic. This module will be very specific at the beginning and then will be turned into something generic.
