@@ -22,5 +22,5 @@ Terraform module for a rancher server on digitalocean.
 | size                      | 1gb                           | Digital Ocean size of the host (512mb, 1gb, 2gb)                             |
 | private\_networking       | true                          | Enable/Disable private networking                                           |
 | domain                    | empty                         | Existing DigitalOcean DNS in which the host will be added e.g. example.com |
-| domain\_name              | rancher.                      | Domain name, for example rancher.example.com                                 |
+| domain\_name              | rancher.                      | Domain name, for example "rancher." (note the dot at the end), so you will have rancher.example.com|
 | user                      | rancher                       | Username to be used to login to the host and for the home folder.     |
