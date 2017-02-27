@@ -1,6 +1,8 @@
 # Rancher Terraform DigitalOcean
 Terraform module for a rancher server on digitalocean.
 
+![rancher][rancher]![terraform][terraform]![digitalocean][digitalocean]
+
 ### What you will need?
 
 - Terraform installed. This was tested with the 0.8.5 version. You can see terraform instructions [here](https://www.terraform.io/downloads.html).
@@ -66,3 +68,7 @@ If you don't need your server anymore, just destroy it
 | private\_networking       | false                         | Enable/Disable private networking                                           |
 | domain\_name              | rancher.                      | Domain name, for example "rancher." (note the dot at the end), so you will have rancher.example.com|
 | user                      | rancher                       | Username to be used to login to the host and for the home folder.     |
+
+[rancher]: ./images/rancher-small.png
+[terraform]: ./images/terraform-small.png
+[digitalocean]: ./images/digitalocean-small.png
