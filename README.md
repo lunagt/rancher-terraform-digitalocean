@@ -1,7 +1,21 @@
+![rancher][rancher]![terraform][terraform]![digitalocean][digitalocean]
+
 # Rancher Terraform DigitalOcean
 Terraform module for a rancher server on digitalocean.
 
-![rancher][rancher]![terraform][terraform]![digitalocean][digitalocean]
+### What you will get?
+
+- A Rancher server running on DigitalOcean
+- A Domain rule pointing to your Rancher server
+
+### Features
+
+- It works with your main DigitalOcean account or with DigitalOcean teams. For using a team you just need that team special token and your SSH keys installed there.
+- It doesn't install puppet, chef or ansible on the host. Instead use [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
+- It closes all the external and internal traffic and the only ports opened are the `80` and `8080`.
+- Login with root user is disabled, you will need your SSH keys.
+- Iptables rules are persistent after reboot.
+- You will get the new DigitalOcean beta metrics agent installed.
 
 ### What you will need?
 
@@ -30,15 +44,6 @@ If you don't need your server anymore, just destroy it
 
     terraform destroy #and type 'yes' after this command
     
-### Features
-
-- It works with your main DigitalOcean account or with DigitalOcean teams. For using a team you just need that team special token and your SSH keys installed there.
-- It doesn't install puppet, chef or ansible on the host. Instead use [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
-- It closes all the external and internal traffic and the only ports opened are the `80` and `8080`.
-- Login with root user is disabled, you will need your SSH keys.
-- Iptables rules are persistent after reboot.
-- You get the new DigitalOcean beta metrics agent installed.
-
 ### Variables
 
 #### Mandatory DigitalOcean API Variables
