@@ -11,7 +11,7 @@ Terraform module for a rancher server on digitalocean.
 ### Features
 
 - It works with your main DigitalOcean account or with DigitalOcean teams. For using a team you just need that team special token and your SSH keys installed there.
-- It doesn't install puppet, chef or ansible on the host. Instead use [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
+- It doesn't install puppet, chef or ansible on the host. Instead it uses [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
 - It closes all the external and internal traffic and the only ports opened are the `80` and `8080`.
 - Login with root user is disabled, you will need your SSH keys.
 - Iptables rules are persistent after reboot.
