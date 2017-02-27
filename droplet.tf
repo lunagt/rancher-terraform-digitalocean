@@ -25,6 +25,6 @@ resource "digitalocean_record" "host" {
   value = "${digitalocean_droplet.host.ipv4_address}"
 }
 
-output "output-host" {
-  value = "Host: ${digitalocean_droplet.host.ipv4_address} - ${digitalocean_droplet.host.ipv4_address_private}"
+output "ip" {
+  value = "Public IP Host: ${digitalocean_droplet.host.ipv4_address}"
 }
