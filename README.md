@@ -20,7 +20,7 @@ Inside the repository folder create a copy of the example `tfvars` file
 
 Edit this new file with the variables you want (see `variables` section at the end).
 
-Run it
+Runing it
 
     terraform apply
     
