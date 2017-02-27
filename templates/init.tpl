@@ -1,10 +1,10 @@
 #cloud-config
 users:
-  - name: luna
+  - name: ${userdata_user}
     groups: sudo
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     shell: /bin/bash
-    home: /home/luna
+    home: /home/${userdata_user}
     lock_passwd: true
     ssh-authorized-keys:
       - ${userdata_sshkey}
@@ -17,6 +17,7 @@ packages:
  - iptables-persistent
 
 runcmd:
+ # iptables rules
  - iptables -A INPUT -i lo -j ACCEPT
  - iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
  - iptables -A INPUT -p tcp --dport ssh -j ACCEPT
@@ -29,4 +30,7 @@ runcmd:
  - sudo netfilter-persistent save
  - sudo netfilter-persistent reload
  - apt-get update --fix-missing
+ # Rancher server
  - docker run -d -v /var/lib/mysql:/var/lib/mysql --restart=unless-stopped -p 8080:8080 rancher/server:stable
+ # Beta metrics for DO
+ - curl -sSL https://agent.digitalocean.com/install.sh | sh 
