@@ -1,7 +1,7 @@
 ![rancher][rancher]![terraform][terraform]![digitalocean][digitalocean]
 
 # Rancher Terraform DigitalOcean
-Terraform module for a rancher server on digitalocean.
+Terraform module for a rancher server on Digitalocean.
 
 ### What you will get?
 
